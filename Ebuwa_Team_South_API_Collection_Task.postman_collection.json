@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "fb5ec9d0-5560-450a-9087-48f232a60ca5",
+		"name": "Ebuwa Team South API Collection Task",
+		"description": "Running Automated Tests for with Test Scripts for learning. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "{{blogLink}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c14bbc5b-9aa4-48ff-b05d-403734be69b0",
+								"exec": [
+									"pm.variables.get(\"My first blog post :\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"My first blog post :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{blogLink}}",
+							"host": [
+								"{{blogLink}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{UrL}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc00529b-8fed-48a0-90a7-0a877c4ca401",
+								"exec": [
+									"pm.variables.get(\"My first blog post :\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"My first blog post :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrL}}",
+							"host": [
+								"{{UrL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{UrL}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c48689f1-9ecc-4e68-a5c6-d9c8f0cf6d33",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"/assets/css/bootstrap/bootstrap.min.css\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"My first blog post :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrL}}",
+							"host": [
+								"{{UrL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "{{UrL}}/api/jsonBlob",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25919b51-61e9-436f-9751-a7705328e0ed",
+								"exec": [
+									"var blogLink= pm.response.to.have.header(\"Location\")\r",
+									"pm.environment.set(\"blogLink\", pm.response.headers.get('Location'));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"My first blog post :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrL}}/api/jsonBlob",
+							"host": [
+								"{{UrL}}"
+							],
+							"path": [
+								"api",
+								"jsonBlob"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "{{UrL}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4eae2598-556d-4072-bcfc-0bfb02d32757",
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"My first blog post :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UrL}}",
+							"host": [
+								"{{UrL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
